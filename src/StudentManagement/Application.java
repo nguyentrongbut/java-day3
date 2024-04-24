@@ -1,5 +1,6 @@
 package StudentManagement;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
@@ -24,17 +25,22 @@ public class Application {
             System.out.println("#: ");
             choice = input.nextInt();
             if(choice == 1) {
-                
+                addStudent();
+                menu();
             } else if (choice == 2) {
-                
+                deleteStudent();
+                menu();
             } else if (choice == 3) {
-
+                searchByName();
+                menu();
             } else if (choice == 4) {
-
+                searchById();
+                menu();
             } else if (choice == 5) {
-
+                printSorted();
+                menu();
             } else if (choice == 6) {
-
+                System.exit(0);
             }
         }
     }
@@ -61,5 +67,31 @@ public class Application {
         System.out.println("Enter student ID: ");
         id = input.nextInt();
         list.remove(id);
+    }
+
+    public static void searchByName() {
+        String name;
+        System.out.println("Enter a name: ");
+        name = input.next();
+        ArrayList<Student> found = list.findByName(name);
+        list.showList(found);
+    }
+
+    public static void searchById() {
+        int id;
+        System.out.println("Enter an ID: ");
+        id = input.nextInt();
+        Student s = list.findById(id);
+        if(s == null) {
+            System.out.println("Not found");
+
+        } else {
+            s.printInfo();
+        }
+    }
+
+    public static void printSorted() {
+        list.sortByMarks();
+        list.showList();
     }
 }

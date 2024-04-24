@@ -27,8 +27,8 @@ public class Student {
         this.mark = scanner.nextDouble();
     }
 
-    public void printInfo () {
-        System.out.println("%3d|%10s%10s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
+    public void printInfo() {
+        System.out.printf("%3d|%10s%10s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
     }
 
     public String getFirstName() {
